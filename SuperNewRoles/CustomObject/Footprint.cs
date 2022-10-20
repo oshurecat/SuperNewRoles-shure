@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,7 +54,7 @@ namespace SuperNewRoles.CustomObject
 
                     if (p == 1f && footprint != null)
                     {
-                        UnityEngine.Object.Destroy(footprint);
+                        UObject.Destroy(footprint);
                         footprints.Remove(this);
                     }
                 })));
@@ -93,7 +93,7 @@ namespace SuperNewRoles.CustomObject
 
                     if (p == 1f && footprint != null)
                     {
-                        UnityEngine.Object.Destroy(footprint);
+                        UObject.Destroy(footprint);
                     }
                 })));
             }

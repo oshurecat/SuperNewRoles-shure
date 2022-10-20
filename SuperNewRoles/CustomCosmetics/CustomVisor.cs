@@ -1,7 +1,7 @@
-using System;
+
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+
+
 using HarmonyLib;
 using UnityEngine;
 
@@ -56,7 +56,7 @@ namespace SuperNewRoles.CustomCosmetics
                 }
                 SuperNewRolesPlugin.Logger.LogInfo("[CustomVisor] バイザー読み込み処理終了");
                 AllVisors.AddRange(VisorDatas);
-                __instance.allVisors = AllVisors.ToArray();
+                __instance.allVisors = AllVisors.ToIl2CppList();
             }
         }
     }

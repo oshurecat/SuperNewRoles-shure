@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using Hazel;
 using SuperNewRoles.Helpers;
@@ -40,7 +40,7 @@ namespace SuperNewRoles.Roles.Impostor
             public byte Color { get; set; }
             public string Skin { get; set; }
             public string Hat { get; set; }
-            public string Visor { get; set;}
+            public string Visor { get; set; }
             public string Pet { get; set; }
         }
         public static Dictionary<byte, AttireData> Attire;

@@ -3,7 +3,7 @@ using Hazel;
 using UnityEngine;
 using SuperNewRoles.Mode.SuperHostRoles;
 using System.Collections.Generic;
-using System.Linq;
+
 using static SuperNewRoles.Modules.CustomOptions;
 using static SuperNewRoles.Roles.CrewMate.Knight;
 
@@ -117,7 +117,7 @@ namespace SuperNewRoles.Roles.CrewMate
                     if (player.IsAlive() && CanProtect && player.PlayerId != CachedPlayer.LocalPlayer.PlayerId)
                     {
                         GameObject template = playerVoteArea.Buttons.transform.Find("CancelButton").gameObject;
-                        GameObject targetBox = Object.Instantiate(template, playerVoteArea.transform);
+                        GameObject targetBox = UObject.Instantiate(template, playerVoteArea.transform);
                         targetBox.name = "KnightProtectButton";
                         targetBox.transform.localPosition = new Vector3(1f, 0.03f, -1f);
                         SpriteRenderer renderer = targetBox.GetComponent<SpriteRenderer>();
@@ -140,7 +140,7 @@ namespace SuperNewRoles.Roles.CrewMate
         /// </summary>
         static void KnightProtectButtonDestroy(MeetingHud __instance)
         {
-            __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("KnightProtectButton") != null) Object.Destroy(x.transform.FindChild("KnightProtectButton").gameObject); });
+            __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("KnightProtectButton") != null) UObject.Destroy(x.transform.FindChild("KnightProtectButton").gameObject); });
             SuperNewRolesPlugin.Logger.LogInfo("[Knight] 護衛可能な条件を満たしていない為、護衛ボタンを消去しました。");
         }
         /// <summary>

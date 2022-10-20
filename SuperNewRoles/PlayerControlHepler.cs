@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+
 using InnerNet;
 using SuperNewRoles.Roles;
 using UnityEngine;
@@ -30,7 +30,7 @@ namespace SuperNewRoles
             {
                 PlayerTask playerTask = player.myTasks[i];
                 playerTask.OnRemove();
-                UnityEngine.Object.Destroy(playerTask.gameObject);
+                UObject.Destroy(playerTask.gameObject);
             }
             player.myTasks.Clear();
 
@@ -67,7 +67,7 @@ namespace SuperNewRoles
             {
                 t.OnRemove();
                 player.myTasks.Remove(t);
-                UnityEngine.Object.Destroy(t.gameObject);
+                UObject.Destroy(t.gameObject);
             }
 
             // Add TextTask for remaining RoleInfos

@@ -1,5 +1,5 @@
-using System;
-using System.Linq;
+
+
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.Events;
@@ -29,11 +29,11 @@ namespace SuperNewRoles.Modules
 
             if (ipField == null || ipField.gameObject == null)
             {
-                ipField = UnityEngine.Object.Instantiate(template.GameIdText, __instance.transform);
+                ipField = UObject.Instantiate(template.GameIdText, __instance.transform);
                 ipField.gameObject.name = "IpTextBox";
                 var arrow = ipField.transform.FindChild("arrowEnter");
                 if (arrow == null || arrow.gameObject == null) return;
-                UnityEngine.Object.DestroyImmediate(arrow.gameObject);
+                UObject.DestroyImmediate(arrow.gameObject);
 
                 ipField.transform.localPosition = new Vector3(0.225f, -1f, -100f);
                 ipField.characterLimit = 30;
@@ -66,11 +66,11 @@ namespace SuperNewRoles.Modules
 
             if (portField == null || portField.gameObject == null)
             {
-                portField = UnityEngine.Object.Instantiate(template.GameIdText, __instance.transform);
+                portField = UObject.Instantiate(template.GameIdText, __instance.transform);
                 portField.gameObject.name = "PortTextBox";
                 var arrow = portField.transform.FindChild("arrowEnter");
                 if (arrow == null || arrow.gameObject == null) return;
-                UnityEngine.Object.DestroyImmediate(arrow.gameObject);
+                UObject.DestroyImmediate(arrow.gameObject);
 
                 portField.transform.localPosition = new Vector3(0.225f, -1.75f, -100f);
                 portField.characterLimit = 5;

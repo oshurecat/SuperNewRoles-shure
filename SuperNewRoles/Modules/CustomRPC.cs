@@ -1,7 +1,7 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+
 using BepInEx.IL2CPP.Utils;
 using HarmonyLib;
 using Hazel;
@@ -260,7 +260,7 @@ namespace SuperNewRoles.Modules
             if (showerid != CachedPlayer.LocalPlayer.PlayerId) return;
             PlayerControl target = ModHelpers.PlayerById(targetid);
             if (target == null) return;
-            PlayerControl.LocalPlayer.ProtectPlayer(target,0);
+            PlayerControl.LocalPlayer.ProtectPlayer(target, 0);
             PlayerControl.LocalPlayer.MurderPlayer(target);
         }
         public static void KnightProtectClear(byte Target)
@@ -289,7 +289,8 @@ namespace SuperNewRoles.Modules
             if (IsSelfDeath)
             {
                 source.MurderPlayer(source);
-            } else
+            }
+            else
             {
                 FastDestroyableSingleton<RoleManager>.Instance.SetRole(target, RoleTypes.Crewmate);
                 SetRole(targetid, (byte)RoleId.Pavlovsdogs);
@@ -418,7 +419,7 @@ namespace SuperNewRoles.Modules
         {
             if (IsChangeReported)
             {
-                DeadBody[] array = UnityEngine.Object.FindObjectsOfType<DeadBody>();
+                DeadBody[] array = UObject.FindObjectsOfType<DeadBody>();
                 for (int i = 0; i < array.Length; i++)
                 {
                     if (GameData.Instance.GetPlayerById(array[i].ParentId).PlayerId == TargetId)
@@ -894,12 +895,12 @@ namespace SuperNewRoles.Modules
         }
         public static void CleanBody(byte playerId)
         {
-            DeadBody[] array = UnityEngine.Object.FindObjectsOfType<DeadBody>();
+            DeadBody[] array = UObject.FindObjectsOfType<DeadBody>();
             for (int i = 0; i < array.Length; i++)
             {
                 if (GameData.Instance.GetPlayerById(array[i].ParentId).PlayerId == playerId)
                 {
-                    UnityEngine.Object.Destroy(array[i].gameObject);
+                    UObject.Destroy(array[i].gameObject);
                 }
             }
         }
@@ -1039,8 +1040,8 @@ namespace SuperNewRoles.Modules
 
         public static void MakeVent(float x, float y, float z)
         {
-            Vent template = UnityEngine.Object.FindObjectOfType<Vent>();
-            Vent VentMakerVent = UnityEngine.Object.Instantiate<Vent>(template);
+            Vent template = UObject.FindObjectOfType<Vent>();
+            Vent VentMakerVent = UObject.Instantiate<Vent>(template);
             if (RoleClass.VentMaker.VentCount == 2)
             {
                 RoleClass.VentMaker.Vent.Right = VentMakerVent;

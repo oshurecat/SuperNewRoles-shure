@@ -115,7 +115,7 @@ namespace SuperNewRoles.Roles
 
         static void Postfix(ExileController __instance)
         {
-            breadText = UnityEngine.Object.Instantiate(                                             //文字定義
+            breadText = UObject.Instantiate(                                             //文字定義
                     __instance.ImpostorText,
                     __instance.Text.transform);
             breadText.text = GetExileText();                                                        //文字の内容を変える

@@ -1,8 +1,8 @@
 // Taken from https://github.com/NuclearPowered/Reactor/ , licensed under the LGPLv3
 
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;

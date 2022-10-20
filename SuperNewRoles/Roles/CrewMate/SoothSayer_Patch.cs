@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+
 using HarmonyLib;
 
 using UnityEngine;
@@ -13,7 +13,7 @@ namespace SuperNewRoles.Roles
         {
             if (PlayerControl.LocalPlayer.IsDead() && PlayerControl.LocalPlayer.IsRole(RoleId.SoothSayer))
             {
-                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null) Object.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
+                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null) UObject.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
             }
         }
     }
@@ -43,11 +43,11 @@ namespace SuperNewRoles.Roles
             if (!RoleClass.SoothSayer.DisplayedPlayer.Contains(Target.PlayerId))
             {
                 RoleClass.SoothSayer.DisplayedPlayer.Add(Target.PlayerId);
-                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null && x.TargetPlayerId == Target.PlayerId) UnityEngine.Object.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
+                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null && x.TargetPlayerId == Target.PlayerId) UObject.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
             }
             if (RoleClass.SoothSayer.Count <= 0)
             {
-                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null) UnityEngine.Object.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
+                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null) UObject.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
             }
         }
         static void Event(MeetingHud __instance)
@@ -61,7 +61,7 @@ namespace SuperNewRoles.Roles
                     if (player.IsAlive() && !RoleClass.SoothSayer.DisplayedPlayer.Contains(player.PlayerId) && player.PlayerId != CachedPlayer.LocalPlayer.PlayerId)
                     {
                         GameObject template = playerVoteArea.Buttons.transform.Find("CancelButton").gameObject;
-                        GameObject targetBox = Object.Instantiate(template, playerVoteArea.transform);
+                        GameObject targetBox = UObject.Instantiate(template, playerVoteArea.transform);
                         targetBox.name = "SoothSayerButton";
                         targetBox.transform.localPosition = new Vector3(1f, 0.03f, -1f);
                         SpriteRenderer renderer = targetBox.GetComponent<SpriteRenderer>();
@@ -100,8 +100,8 @@ namespace SuperNewRoles.Roles
             }
             if (RoleClass.SpiritMedium.MaxCount <= 0)
             {
-                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null && x.TargetPlayerId == Target.PlayerId) Object.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
-                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null) Object.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
+                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null && x.TargetPlayerId == Target.PlayerId) UObject.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
+                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("SoothSayerButton") != null) UObject.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
             }
         }
         static void SpiritEvent(MeetingHud __instance)
@@ -117,7 +117,7 @@ namespace SuperNewRoles.Roles
                     if (!player.Data.Disconnected && player.IsDead() && !RoleClass.SoothSayer.DisplayedPlayer.Contains(player.PlayerId) && player.PlayerId != CachedPlayer.LocalPlayer.PlayerId)
                     {
                         GameObject template = playerVoteArea.Buttons.transform.Find("CancelButton").gameObject;
-                        GameObject targetBox = Object.Instantiate(template, playerVoteArea.transform);
+                        GameObject targetBox = UObject.Instantiate(template, playerVoteArea.transform);
 
                         targetBox.name = "SoothSayerButton";
                         targetBox.transform.localPosition = new Vector3(1f, 0.03f, -1f);

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+
 using Hazel;
 using SuperNewRoles.CustomObject;
 using SuperNewRoles.Helpers;
@@ -59,7 +59,7 @@ namespace SuperNewRoles.Roles.Neutral
             {
                 if (RoleClass.Hitman.cooldownText != null)
                 {
-                    Object.Destroy(RoleClass.Hitman.cooldownText.gameObject);
+                    UObject.Destroy(RoleClass.Hitman.cooldownText.gameObject);
                     RoleClass.Hitman.cooldownText = null;
                 }
             }

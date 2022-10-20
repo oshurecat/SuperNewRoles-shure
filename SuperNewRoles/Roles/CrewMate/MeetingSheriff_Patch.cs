@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+
 using HarmonyLib;
 using Hazel;
 using SuperNewRoles.CustomObject;
@@ -54,7 +54,7 @@ namespace SuperNewRoles.Roles
         {
             if (PlayerControl.LocalPlayer.IsRole(RoleId.MeetingSheriff) && PlayerControl.LocalPlayer.IsDead())
             {
-                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("ShootButton") != null) Object.Destroy(x.transform.FindChild("ShootButton").gameObject); });
+                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("ShootButton") != null) UObject.Destroy(x.transform.FindChild("ShootButton").gameObject); });
             }
         }
         public static void Change()
@@ -119,7 +119,7 @@ namespace SuperNewRoles.Roles
             RoleClass.MeetingSheriff.KillMaxCount--;
             if (RoleClass.MeetingSheriff.KillMaxCount <= 0 || !RoleClass.MeetingSheriff.OneMeetingMultiKill || misfire)
             {
-                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("ShootButton") != null) Object.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
+                __instance.playerStates.ToList().ForEach(x => { if (x.transform.FindChild("ShootButton") != null) UObject.Destroy(x.transform.FindChild("SoothSayerButton").gameObject); });
             }
 
         }
@@ -134,7 +134,7 @@ namespace SuperNewRoles.Roles
                     if (player.IsAlive() && player.PlayerId != CachedPlayer.LocalPlayer.PlayerId)
                     {
                         GameObject template = playerVoteArea.Buttons.transform.Find("CancelButton").gameObject;
-                        GameObject targetBox = Object.Instantiate(template, playerVoteArea.transform);
+                        GameObject targetBox = UObject.Instantiate(template, playerVoteArea.transform);
                         targetBox.name = "ShootButton";
                         targetBox.transform.localPosition = new Vector3(1f, 0.03f, -1f);
                         SpriteRenderer renderer = targetBox.GetComponent<SpriteRenderer>();
@@ -249,7 +249,7 @@ namespace SuperNewRoles.Roles
         static void CreateAreaButton(MeetingHud __instance)
         {
             GameObject template = __instance.transform.FindChild("ButtonStuff").FindChild("button_skipVoting").gameObject;
-            GameObject targetBox = Object.Instantiate(template, __instance.transform);
+            GameObject targetBox = UObject.Instantiate(template, __instance.transform);
             targetBox.name = "RightButton";
             targetBox.gameObject.SetActive(true);
             targetBox.transform.localPosition = new Vector3(4.8f, 0f, -3f);
@@ -266,7 +266,7 @@ namespace SuperNewRoles.Roles
             button.OnMouseOver.AddListener((UnityEngine.Events.UnityAction)(() => renderer.color = Color.green));
             button.OnMouseOut.AddListener((UnityEngine.Events.UnityAction)(() => renderer.color = Color.white));
 
-            GameObject targetBoxl = UnityEngine.Object.Instantiate(template, __instance.transform);
+            GameObject targetBoxl = UObject.Instantiate(template, __instance.transform);
             targetBoxl.name = "LeftButton";
             targetBoxl.gameObject.SetActive(true);
             targetBoxl.transform.localPosition = new Vector3(-4.75f, 0f, -3f);

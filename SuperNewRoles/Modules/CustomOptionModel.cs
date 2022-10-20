@@ -1,8 +1,8 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
+
+
+
 using BepInEx.Configuration;
 using HarmonyLib;
 using Hazel;
@@ -300,8 +300,9 @@ namespace SuperNewRoles.Modules
                     return _.NameKey + "Name" == name;
                 }).RoleId;
             }
-            catch {
-                Logger.Info("RoleId取得でエラーが発生しました:"+name,"CustomRoleOption");
+            catch
+            {
+                Logger.Info("RoleId取得でエラーが発生しました:" + name, "CustomRoleOption");
             }
             RoleOptions.Add(this);
             if (max > 1)
@@ -403,32 +404,32 @@ namespace SuperNewRoles.Modules
                 return;
             }
             // Setup TOR tab
-            var template = UnityEngine.Object.FindObjectsOfType<StringOption>().FirstOrDefault();
+            var template = UObject.FindObjectsOfType<StringOption>().FirstOrDefault();
             if (template == null) return;
             var gameSettings = GameObject.Find("Game Settings");
-            var gameSettingMenu = UnityEngine.Object.FindObjectsOfType<GameSettingMenu>().FirstOrDefault();
+            var gameSettingMenu = UObject.FindObjectsOfType<GameSettingMenu>().FirstOrDefault();
 
-            var snrSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
+            var snrSettings = UObject.Instantiate(gameSettings, gameSettings.transform.parent);
             var snrMenu = snrSettings.transform.FindChild("GameGroup").FindChild("SliderInner").GetComponent<GameOptionsMenu>();
             snrSettings.name = "SNRSettings";
             snrSettings.transform.FindChild("GameGroup").FindChild("SliderInner").name = "GenericSetting";
 
-            var impostorSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
+            var impostorSettings = UObject.Instantiate(gameSettings, gameSettings.transform.parent);
             var impostorMenu = impostorSettings.transform.FindChild("GameGroup").FindChild("SliderInner").GetComponent<GameOptionsMenu>();
             impostorSettings.name = "ImpostorSettings";
             impostorSettings.transform.FindChild("GameGroup").FindChild("SliderInner").name = "ImpostorSetting";
 
-            var neutralSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
+            var neutralSettings = UObject.Instantiate(gameSettings, gameSettings.transform.parent);
             var neutralMenu = neutralSettings.transform.FindChild("GameGroup").FindChild("SliderInner").GetComponent<GameOptionsMenu>();
             neutralSettings.name = "NeutralSettings";
             neutralSettings.transform.FindChild("GameGroup").FindChild("SliderInner").name = "NeutralSetting";
 
-            var crewmateSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
+            var crewmateSettings = UObject.Instantiate(gameSettings, gameSettings.transform.parent);
             var crewmateMenu = crewmateSettings.transform.FindChild("GameGroup").FindChild("SliderInner").GetComponent<GameOptionsMenu>();
             crewmateSettings.name = "CrewmateSettings";
             crewmateSettings.transform.FindChild("GameGroup").FindChild("SliderInner").name = "CrewmateSetting";
 
-            var RegulationSettings = UnityEngine.Object.Instantiate(gameSettings, gameSettings.transform.parent);
+            var RegulationSettings = UObject.Instantiate(gameSettings, gameSettings.transform.parent);
             var RegulationMenu = RegulationSettings.transform.FindChild("GameGroup").FindChild("SliderInner").GetComponent<GameOptionsMenu>();
             RegulationSettings.name = "RegulationSettings";
             RegulationSettings.transform.FindChild("GameGroup").FindChild("SliderInner").name = "RegulationSetting";
@@ -436,26 +437,26 @@ namespace SuperNewRoles.Modules
             var roleTab = GameObject.Find("RoleTab");
             var gameTab = GameObject.Find("GameTab");
 
-            var snrTab = UnityEngine.Object.Instantiate(roleTab, roleTab.transform.parent);
+            var snrTab = UObject.Instantiate(roleTab, roleTab.transform.parent);
             var snrTabHighlight = snrTab.transform.FindChild("Hat Button").FindChild("Tab Background").GetComponent<SpriteRenderer>();
             snrTab.transform.FindChild("Hat Button").FindChild("Icon").GetComponent<SpriteRenderer>().sprite = ModHelpers.LoadSpriteFromResources("SuperNewRoles.Resources.TabIcon.png", 100f);
 
-            var impostorTab = UnityEngine.Object.Instantiate(roleTab, snrTab.transform);
+            var impostorTab = UObject.Instantiate(roleTab, snrTab.transform);
             var impostorTabHighlight = impostorTab.transform.FindChild("Hat Button").FindChild("Tab Background").GetComponent<SpriteRenderer>();
             impostorTab.transform.FindChild("Hat Button").FindChild("Icon").GetComponent<SpriteRenderer>().sprite = ModHelpers.LoadSpriteFromResources("SuperNewRoles.Resources.Setting_Impostor.png", 100f);
             impostorTab.name = "ImpostorTab";
 
-            var neutralTab = UnityEngine.Object.Instantiate(roleTab, impostorTab.transform);
+            var neutralTab = UObject.Instantiate(roleTab, impostorTab.transform);
             var neutralTabHighlight = neutralTab.transform.FindChild("Hat Button").FindChild("Tab Background").GetComponent<SpriteRenderer>();
             neutralTab.transform.FindChild("Hat Button").FindChild("Icon").GetComponent<SpriteRenderer>().sprite = ModHelpers.LoadSpriteFromResources("SuperNewRoles.Resources.Setting_Neutral.png", 100f);
             neutralTab.name = "NeutralTab";
 
-            var crewmateTab = UnityEngine.Object.Instantiate(roleTab, neutralTab.transform);
+            var crewmateTab = UObject.Instantiate(roleTab, neutralTab.transform);
             var crewmateTabHighlight = crewmateTab.transform.FindChild("Hat Button").FindChild("Tab Background").GetComponent<SpriteRenderer>();
             crewmateTab.transform.FindChild("Hat Button").FindChild("Icon").GetComponent<SpriteRenderer>().sprite = ModHelpers.LoadSpriteFromResources("SuperNewRoles.Resources.Setting_Crewmate.png", 100f);
             crewmateTab.name = "CrewmateTab";
 
-            var RegulationTab = UnityEngine.Object.Instantiate(roleTab, neutralTab.transform);
+            var RegulationTab = UObject.Instantiate(roleTab, neutralTab.transform);
             var RegulationTabHighlight = RegulationTab.transform.FindChild("Hat Button").FindChild("Tab Background").GetComponent<SpriteRenderer>();
             RegulationTab.transform.FindChild("Hat Button").FindChild("Icon").GetComponent<SpriteRenderer>().sprite = ModHelpers.LoadSpriteFromResources("SuperNewRoles.Resources.Setting_Crewmate.png", 100f);
             RegulationTab.name = "RegulationTab";
@@ -531,15 +532,15 @@ namespace SuperNewRoles.Modules
             }
 
             foreach (OptionBehaviour option in snrMenu.GetComponentsInChildren<OptionBehaviour>())
-                UnityEngine.Object.Destroy(option.gameObject);
+                UObject.Destroy(option.gameObject);
             foreach (OptionBehaviour option in impostorMenu.GetComponentsInChildren<OptionBehaviour>())
-                UnityEngine.Object.Destroy(option.gameObject);
+                UObject.Destroy(option.gameObject);
             foreach (OptionBehaviour option in neutralMenu.GetComponentsInChildren<OptionBehaviour>())
-                UnityEngine.Object.Destroy(option.gameObject);
+                UObject.Destroy(option.gameObject);
             foreach (OptionBehaviour option in crewmateMenu.GetComponentsInChildren<OptionBehaviour>())
-                UnityEngine.Object.Destroy(option.gameObject);
+                UObject.Destroy(option.gameObject);
             foreach (OptionBehaviour option in RegulationMenu.GetComponentsInChildren<OptionBehaviour>())
-                UnityEngine.Object.Destroy(option.gameObject);
+                UObject.Destroy(option.gameObject);
             List<OptionBehaviour> snrOptions = new();
             List<OptionBehaviour> impostorOptions = new();
             List<OptionBehaviour> neutralOptions = new();
@@ -553,7 +554,7 @@ namespace SuperNewRoles.Modules
                 CustomOption option = CustomOption.options[i];
                 if (option.optionBehaviour == null)
                 {
-                    StringOption stringOption = UnityEngine.Object.Instantiate(template, menus[(int)option.type]);
+                    StringOption stringOption = UObject.Instantiate(template, menus[(int)option.type]);
                     optionBehaviours[(int)option.type].Add(stringOption);
                     stringOption.OnValueChanged = new Action<OptionBehaviour>((o) => { });
                     stringOption.TitleText.text = option.name;
@@ -569,7 +570,7 @@ namespace SuperNewRoles.Modules
             {
                 if (Regulation.optionBehaviour == null)
                 {
-                    StringOption stringOption = UnityEngine.Object.Instantiate(template, RegulationMenu.transform);
+                    StringOption stringOption = UObject.Instantiate(template, RegulationMenu.transform);
                     stringOption.OnValueChanged = new Action<OptionBehaviour>((o) => { });
                     stringOption.TitleText.text = Regulation.title;
                     stringOption.Value = stringOption.oldValue = 0;
@@ -777,7 +778,7 @@ namespace SuperNewRoles.Modules
         }
         public static void Postfix(GameOptionsMenu __instance)
         {
-            var gameSettingMenu = UnityEngine.Object.FindObjectsOfType<GameSettingMenu>().FirstOrDefault();
+            var gameSettingMenu = UObject.FindObjectsOfType<GameSettingMenu>().FirstOrDefault();
             if (gameSettingMenu.RegularGameSettings.active || gameSettingMenu.RolesSettings.gameObject.active) return;
 
             timer += Time.deltaTime;

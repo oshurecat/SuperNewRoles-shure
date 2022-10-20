@@ -1,7 +1,7 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+
 using Hazel;
 using SuperNewRoles.Helpers;
 using UnityEngine;
@@ -54,7 +54,7 @@ namespace SuperNewRoles.Roles.Impostor
             }
             else
             {
-                DeadBody[] array = UnityEngine.Object.FindObjectsOfType<DeadBody>();
+                DeadBody[] array = UObject.FindObjectsOfType<DeadBody>();
                 for (int i = 0; i < array.Length; i++)
                 {
                     if (GameData.Instance.GetPlayerById(array[i].ParentId).PlayerId == target.PlayerId)

@@ -1,6 +1,6 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
+
 using HarmonyLib;
 using UnityEngine;
 
@@ -21,10 +21,10 @@ namespace SuperNewRoles.Patches
         {
             HideBlackBG();
             HideInfoOverlay();
-            UnityEngine.Object.Destroy(meetingUnderlay);
-            UnityEngine.Object.Destroy(infoUnderlay);
-            UnityEngine.Object.Destroy(infoOverlayRules);
-            UnityEngine.Object.Destroy(infoOverlayRoles);
+            UObject.Destroy(meetingUnderlay);
+            UObject.Destroy(infoUnderlay);
+            UObject.Destroy(infoOverlayRules);
+            UObject.Destroy(infoOverlayRoles);
             meetingUnderlay = infoUnderlay = null;
             infoOverlayRules = infoOverlayRoles = null;
             overlayShown = false;
@@ -47,7 +47,7 @@ namespace SuperNewRoles.Patches
 
             if (meetingUnderlay == null)
             {
-                meetingUnderlay = UnityEngine.Object.Instantiate(hudManager.FullScreen, hudManager.transform);
+                meetingUnderlay = UObject.Instantiate(hudManager.FullScreen, hudManager.transform);
                 meetingUnderlay.transform.localPosition = new Vector3(0f, 0f, 20f);
                 meetingUnderlay.gameObject.SetActive(true);
                 meetingUnderlay.enabled = false;
@@ -55,7 +55,7 @@ namespace SuperNewRoles.Patches
 
             if (infoUnderlay == null)
             {
-                infoUnderlay = UnityEngine.Object.Instantiate(meetingUnderlay, hudManager.transform);
+                infoUnderlay = UObject.Instantiate(meetingUnderlay, hudManager.transform);
                 infoUnderlay.transform.localPosition = new Vector3(0f, 0f, -900f);
                 infoUnderlay.gameObject.SetActive(true);
                 infoUnderlay.enabled = false;
@@ -63,7 +63,7 @@ namespace SuperNewRoles.Patches
 
             if (infoOverlayRules == null)
             {
-                infoOverlayRules = UnityEngine.Object.Instantiate(hudManager.TaskText, hudManager.transform);
+                infoOverlayRules = UObject.Instantiate(hudManager.TaskText, hudManager.transform);
                 infoOverlayRules.fontSize = infoOverlayRules.fontSizeMin = infoOverlayRules.fontSizeMax = 1.15f;
                 infoOverlayRules.autoSizeTextContainer = false;
                 infoOverlayRules.enableWordWrapping = false;
@@ -77,7 +77,7 @@ namespace SuperNewRoles.Patches
 
             if (infoOverlayRoles == null)
             {
-                infoOverlayRoles = UnityEngine.Object.Instantiate(infoOverlayRules, hudManager.transform);
+                infoOverlayRoles = UObject.Instantiate(infoOverlayRules, hudManager.transform);
                 infoOverlayRoles.maxVisibleLines = 28;
                 infoOverlayRoles.fontSize = infoOverlayRoles.fontSizeMin = infoOverlayRoles.fontSizeMax = 1.15f;
                 infoOverlayRoles.outlineWidth += 0.02f;

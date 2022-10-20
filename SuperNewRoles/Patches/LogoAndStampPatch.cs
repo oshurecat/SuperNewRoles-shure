@@ -1,11 +1,11 @@
-using System;
+
 using System.Collections;
-using System.IO;
-using System.Net;
-using System.Net.Http;
+
+
+
 using System.Net.Http.Headers;
-using System.Reflection;
-using System.Threading.Tasks;
+
+
 using BepInEx.IL2CPP.Utils;
 using HarmonyLib;
 using Newtonsoft.Json.Linq;
@@ -37,7 +37,7 @@ namespace SuperNewRoles.Patches
 
                 var amongUsLogo = GameObject.Find("bannerLogo_AmongUs");
                 if (amongUsLogo == null) return;
-                var credentials = UnityEngine.Object.Instantiate<TMPro.TextMeshPro>(__instance.text);
+                var credentials = UObject.Instantiate<TMPro.TextMeshPro>(__instance.text);
                 credentials.transform.position = new Vector3(0, 0f, 0);
                 //ブランチ名表示
                 string credentialsText = "";
@@ -53,7 +53,7 @@ namespace SuperNewRoles.Patches
                 credentials.fontSize *= 0.9f;
                 AutoUpdate.checkForUpdate(credentials);
 
-                var version = UnityEngine.Object.Instantiate(credentials);
+                var version = UObject.Instantiate(credentials);
                 version.transform.position = new Vector3(0, -0.35f, 0);
                 version.SetText($"{SuperNewRolesPlugin.ModName} v{SuperNewRolesPlugin.VersionString}");
 
@@ -296,7 +296,7 @@ namespace SuperNewRoles.Patches
                 var template = GameObject.Find("ExitGameButton");
                 if (template == null) return;
 
-                var button = UnityEngine.Object.Instantiate(template, null);
+                var button = UObject.Instantiate(template, null);
                 button.transform.localPosition = new Vector3(button.transform.localPosition.x, button.transform.localPosition.y + 0.6f, button.transform.localPosition.z);
 
                 PassiveButton passiveButton = button.GetComponent<PassiveButton>();
@@ -310,7 +310,7 @@ namespace SuperNewRoles.Patches
                 })));
 
                 TwitchManager man = DestroyableSingleton<TwitchManager>.Instance;
-                popup = UnityEngine.Object.Instantiate<GenericPopup>(man.TwitchPopup);
+                popup = UObject.Instantiate<GenericPopup>(man.TwitchPopup);
                 popup.TextAreaTMP.fontSize *= 0.7f;
                 popup.TextAreaTMP.enableAutoSizing = false;
 

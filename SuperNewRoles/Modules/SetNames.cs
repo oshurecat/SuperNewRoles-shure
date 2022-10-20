@@ -1,6 +1,6 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
+
 using SuperNewRoles.Mode;
 using SuperNewRoles.Patches;
 using SuperNewRoles.Roles;
@@ -80,7 +80,7 @@ namespace SuperNewRoles.Modules
             TextMeshPro playerInfo = PlayerInfos.ContainsKey(p.PlayerId) ? PlayerInfos[p.PlayerId] : null;
             if (playerInfo == null)
             {
-                playerInfo = UnityEngine.Object.Instantiate(p.NameText(), p.NameText().transform.parent);
+                playerInfo = UObject.Instantiate(p.NameText(), p.NameText().transform.parent);
                 playerInfo.fontSize *= 0.75f;
                 playerInfo.gameObject.name = "Info";
                 PlayerInfos[p.PlayerId] = playerInfo;
@@ -93,7 +93,7 @@ namespace SuperNewRoles.Modules
             TMPro.TextMeshPro meetingInfo = MeetingPlayerInfos.ContainsKey(p.PlayerId) ? MeetingPlayerInfos[p.PlayerId] : null;
             if (meetingInfo == null && playerVoteArea != null)
             {
-                meetingInfo = UnityEngine.Object.Instantiate(playerVoteArea.NameText, playerVoteArea.NameText.transform.parent);
+                meetingInfo = UObject.Instantiate(playerVoteArea.NameText, playerVoteArea.NameText.transform.parent);
                 meetingInfo.transform.localPosition += Vector3.down * 0.1f;
                 meetingInfo.fontSize = 1.5f;
                 meetingInfo.gameObject.name = "Info";
@@ -412,17 +412,17 @@ namespace SuperNewRoles.Modules
                 SetNamesClass.SetPlayerRoleNames(PlayerControl.LocalPlayer);
                 SetNamesClass.SetPlayerNameColors(PlayerControl.LocalPlayer);
             }
-            
+
             //名前の奴
             if (RoleClass.Camouflager.IsCamouflage)
             {
-                if(RoleClass.Camouflager.ArsonistMark)
+                if (RoleClass.Camouflager.ArsonistMark)
                     SetNamesClass.ArsonistSet();
-                if(RoleClass.Camouflager.DemonMark)
+                if (RoleClass.Camouflager.DemonMark)
                     SetNamesClass.DemonSet();
-                if(RoleClass.Camouflager.LoversMark)
+                if (RoleClass.Camouflager.LoversMark)
                     SetNamesClass.LoversSet();
-                if(RoleClass.Camouflager.QuarreledMark)
+                if (RoleClass.Camouflager.QuarreledMark)
                     SetNamesClass.QuarreledSet();
             }
             else

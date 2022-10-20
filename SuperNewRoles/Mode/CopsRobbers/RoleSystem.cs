@@ -1,6 +1,6 @@
-using System;
+
 using System.Collections.Generic;
-using System.Text;
+
 using SuperNewRoles.Helpers;
 using SuperNewRoles.Mode.SuperHostRoles;
 using SuperNewRoles.Patches;
@@ -77,7 +77,7 @@ namespace SuperNewRoles.Mode.CopsRobbers
                 }
                 catch { }
             }
-            NewName = "<size=75%>" + ModHelpers.Cs(introdate.color, introdate.Name) + TaskText + "</size>\n" + (CopsRobbersOptions.CRHideName.GetBool() && CopsRobbersOptions.CopsRobbersMode.GetBool() ? " " :  ModHelpers.Cs(introdate.color, Name));
+            NewName = "<size=75%>" + ModHelpers.Cs(introdate.color, introdate.Name) + TaskText + "</size>\n" + (CopsRobbersOptions.CRHideName.GetBool() && CopsRobbersOptions.CopsRobbersMode.GetBool() ? " " : ModHelpers.Cs(introdate.color, Name));
             player.RpcSetNamePrivate(NewName);
         }
         public static void AssignRole()

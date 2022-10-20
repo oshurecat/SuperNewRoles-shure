@@ -1,5 +1,5 @@
-using System.IO;
-using System.Reflection;
+
+
 using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +14,7 @@ namespace SuperNewRoles.Patches
             var template = GameObject.Find("ExitGameButton");
             if (template == null) return;
 
-            var buttonDiscord = UnityEngine.Object.Instantiate(template, null);
+            var buttonDiscord = UObject.Instantiate(template, null);
             buttonDiscord.transform.localPosition = File.Exists(Assembly.GetExecutingAssembly().Location.Replace("SuperNewRoles.dll", "Submerged.dll"))
                 ? new Vector3(buttonDiscord.transform.localPosition.x, buttonDiscord.transform.localPosition.y + 0.6f, buttonDiscord.transform.localPosition.z)
                 : new Vector3(buttonDiscord.transform.localPosition.x, buttonDiscord.transform.localPosition.y + 1.2f, buttonDiscord.transform.localPosition.z);
@@ -38,7 +38,7 @@ namespace SuperNewRoles.Patches
                 buttonSpriteDiscord.color = textDiscord.color = discordColor;
             });
 
-            var buttonTwitter = Object.Instantiate(template, null);
+            var buttonTwitter = UObject.Instantiate(template, null);
             buttonTwitter.transform.localPosition = File.Exists(Assembly.GetExecutingAssembly().Location.Replace("SuperNewRoles.dll", "Submerged.dll"))
                 ? new Vector3(buttonTwitter.transform.localPosition.x, buttonTwitter.transform.localPosition.y + 1.2f, buttonTwitter.transform.localPosition.z)
                 : new Vector3(buttonTwitter.transform.localPosition.x, buttonTwitter.transform.localPosition.y + 1.8f, buttonTwitter.transform.localPosition.z);
@@ -61,10 +61,10 @@ namespace SuperNewRoles.Patches
                 buttonSpriteTwitter.color = textTwitter.color = TwitterColor;
             });
 
-            var buttonTwitterSNRDevs = Object.Instantiate(template, null);
+            var buttonTwitterSNRDevs = UObject.Instantiate(template, null);
             buttonTwitterSNRDevs.SetActive(false);
 
-            var buttonTwitterSuperNewRoles = Object.Instantiate(template, null);
+            var buttonTwitterSuperNewRoles = UObject.Instantiate(template, null);
             buttonTwitterSuperNewRoles.SetActive(false);
 
             passiveButtonTwitter.OnClick.AddListener((System.Action)(() =>

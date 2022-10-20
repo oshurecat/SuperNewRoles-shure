@@ -18,7 +18,7 @@ namespace SuperNewRoles.Roles
                 }
                 float min_target_distance = float.MaxValue;
                 DeadBody target = null;
-                DeadBody[] deadBodies = Object.FindObjectsOfType<DeadBody>();
+                DeadBody[] deadBodies = UObject.FindObjectsOfType<DeadBody>();
                 foreach (DeadBody db in deadBodies)
                 {
                     if (db == null)

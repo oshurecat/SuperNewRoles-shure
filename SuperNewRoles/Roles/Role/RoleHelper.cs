@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using Hazel;
 using SuperNewRoles.CustomObject;
@@ -1091,7 +1091,7 @@ namespace SuperNewRoles
                 case RoleId.Camouflager:
                     RoleClass.Camouflager.CamouflagerPlayer.RemoveAll(ClearRemove);
                     break;
-                //ロールリモベ
+                    //ロールリモベ
             }
             ChacheManager.ResetMyRoleChache();
         }
@@ -1330,7 +1330,7 @@ namespace SuperNewRoles
             RoleId.Photographer or
             RoleId.Pavlovsdogs or
             RoleId.Pavlovsowner;
-            //第三か
+        //第三か
         public static bool IsRole(this PlayerControl p, RoleId role, bool IsChache = true)
         {
             RoleId MyRole;

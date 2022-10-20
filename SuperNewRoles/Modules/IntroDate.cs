@@ -1,6 +1,6 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
+
 using SuperNewRoles.Patches;
 using SuperNewRoles.Roles;
 using SuperNewRoles.Roles.Impostor;

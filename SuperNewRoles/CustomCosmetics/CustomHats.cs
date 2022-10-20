@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+
+
+
+
 using System.Net.Http.Headers;
-using System.Reflection;
+
 using System.Security.Cryptography;
-using System.Threading.Tasks;
+
 using BepInEx.IL2CPP.Utils;
 using HarmonyLib;
 using Newtonsoft.Json.Linq;
@@ -240,7 +240,7 @@ namespace SuperNewRoles.CustomCosmetics
                 IsLoadingnow = false;
                 var data = __instance.allHats.ToList();
                 data.AddRange(AddHatDatas);
-                __instance.allHats = data.ToArray();
+                __instance.allHats = data.ToIl2CppList();
             }
         }
 
@@ -316,7 +316,7 @@ namespace SuperNewRoles.CustomCosmetics
                 float offset = YStart;
                 if (textTemplate != null)
                 {
-                    TMPro.TMP_Text title = UnityEngine.Object.Instantiate<TMPro.TMP_Text>(textTemplate, __instance.scroller.Inner);
+                    TMPro.TMP_Text title = UObject.Instantiate<TMPro.TMP_Text>(textTemplate, __instance.scroller.Inner);
                     title.transform.parent = __instance.scroller.Inner;
                     title.transform.localPosition = new Vector3(headerX, YStart, inventoryZ);
                     title.alignment = TMPro.TextAlignmentOptions.Center;
@@ -354,7 +354,7 @@ namespace SuperNewRoles.CustomCosmetics
 
                     float xpos = __instance.XRange.Lerp((i2 % __instance.NumPerRow) / (__instance.NumPerRow - 1f));
                     float ypos = offset - (i2 / __instance.NumPerRow) * __instance.YOffset;
-                    ColorChip colorChip = UnityEngine.Object.Instantiate<ColorChip>(__instance.ColorTabPrefab, __instance.scroller.Inner);
+                    ColorChip colorChip = UObject.Instantiate<ColorChip>(__instance.ColorTabPrefab, __instance.scroller.Inner);
 
                     int color = __instance.HasLocalPlayer() ? CachedPlayer.LocalPlayer.Data.DefaultOutfit.ColorId : SaveManager.BodyColor;
 
@@ -710,7 +710,7 @@ namespace SuperNewRoles.CustomCosmetics
             }
             catch (System.Exception ex)
             {
-                SuperNewRolesPlugin.Instance.Log.LogError("HatsError: "+ex.ToString());
+                SuperNewRolesPlugin.Instance.Log.LogError("HatsError: " + ex.ToString());
             }
             return HttpStatusCode.OK;
         }

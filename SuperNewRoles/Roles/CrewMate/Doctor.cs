@@ -1,6 +1,6 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
+
 using HarmonyLib;
 
 using SuperNewRoles.Patches;
@@ -36,7 +36,7 @@ namespace SuperNewRoles.Roles
                 //vitalsTimer = 0f;
                 if (TimeRemaining != null)
                 {
-                    UnityEngine.Object.Destroy(TimeRemaining);
+                    UObject.Destroy(TimeRemaining);
                     TimeRemaining = null;
                 }
             }
@@ -51,9 +51,9 @@ namespace SuperNewRoles.Roles
                         hackerTexts = new();
                         foreach (VitalsPanel panel in __instance.vitals)
                         {
-                            TMPro.TextMeshPro text = UnityEngine.Object.Instantiate(__instance.SabText, panel.transform);
+                            TMPro.TextMeshPro text = UObject.Instantiate(__instance.SabText, panel.transform);
                             hackerTexts.Add(text);
-                            UnityEngine.Object.DestroyImmediate(text.GetComponent<AlphaBlink>());
+                            UObject.DestroyImmediate(text.GetComponent<AlphaBlink>());
                             text.gameObject.SetActive(false);
                             text.transform.localScale = Vector3.one * 0.75f;
                             text.transform.localPosition = new(-0.75f, -0.23f, 0f);

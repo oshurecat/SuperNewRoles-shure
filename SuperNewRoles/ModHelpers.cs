@@ -1,8 +1,8 @@
-using System;
+
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+
+
+
 using HarmonyLib;
 using Hazel;
 
@@ -173,20 +173,20 @@ namespace SuperNewRoles
             return res;
         }
 
-        public static void DestroyList<T>(Il2CppSystem.Collections.Generic.List<T> items) where T : UnityEngine.Object
+        public static void DestroyList<T>(Il2CppSystem.Collections.Generic.List<T> items) where T : UObject
         {
             if (items == null) return;
             foreach (T item in items)
             {
-                UnityEngine.Object.Destroy(item);
+                UObject.Destroy(item);
             }
         }
-        public static void DestroyList<T>(List<T> items) where T : UnityEngine.Object
+        public static void DestroyList<T>(List<T> items) where T : UObject
         {
             if (items == null) return;
             foreach (T item in items)
             {
-                UnityEngine.Object.Destroy(item);
+                UObject.Destroy(item);
             }
         }
         public static MurderAttemptResult CheckMuderAttempt(PlayerControl killer, PlayerControl target, bool blockRewind = false)
@@ -225,7 +225,7 @@ namespace SuperNewRoles
                 if (EvilEraser.IsOKAndTryUse(EvilEraser.BlockTypes.MadStuntmanGuard, killer))
                 {
                     bool IsSend = false;
-                    if (!RoleClass.MadStuntMan.GuardCount.ContainsKey(target.PlayerId)||
+                    if (!RoleClass.MadStuntMan.GuardCount.ContainsKey(target.PlayerId) ||
                     RoleClass.MadStuntMan.GuardCount[target.PlayerId] > 0)
                     {
                         MessageWriter writer = RPCHelper.StartRPC(CustomRPC.UncheckedProtect);
@@ -259,7 +259,7 @@ namespace SuperNewRoles
                 if (EvilEraser.IsOKAndTryUse(EvilEraser.BlockTypes.FoxGuard, killer))
                 {
                     bool IsSend = false;
-                    if (!RoleClass.Fox.KillGuard.ContainsKey(target.PlayerId)||
+                    if (!RoleClass.Fox.KillGuard.ContainsKey(target.PlayerId) ||
                     RoleClass.Fox.KillGuard[target.PlayerId] > 0)
                     {
                         MessageWriter writer = RPCHelper.StartRPC(CustomRPC.UncheckedProtect);

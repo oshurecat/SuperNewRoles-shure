@@ -1,8 +1,8 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+
 using BepInEx.IL2CPP.Utils;
 using HarmonyLib;
 using SuperNewRoles.Mode.SuperHostRoles;
@@ -44,7 +44,7 @@ namespace SuperNewRoles.Patches
     {
         static readonly string SNRCommander = $"<size=200%>{SuperNewRolesPlugin.ColorModName}</size>";
         public static string WelcomeToSuperNewRoles = $"<size=150%>Welcome To {SuperNewRolesPlugin.ColorModName}</size>";
-        
+
         public static bool Prefix(PlayerControl sourcePlayer, string chatText)
         {
             if (Mode.Werewolf.Main.IsChatBlock(sourcePlayer, chatText)) return false;

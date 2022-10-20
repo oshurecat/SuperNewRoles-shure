@@ -201,9 +201,9 @@ class AllCheck:
                 namedata = "CrewMate"
             with open(BasePath+"Roles/"+namedata+"/ROLENAME.cs".replace("ROLENAME", MainClass.GetInput("RoleName")), mode="x") as x:
                 x.write(
-                    """using System;
+                    """
 using System.Collections.Generic;
-using System.Text;
+
 namespace SuperNewRoles.Roles."""+namedata+"""
 {
     public static class ROLENAME
@@ -523,4 +523,3 @@ while True:
         MainClass.UpdateGUI("OptionNumberIDText", False)
         MainClass.UpdateGUI("OptionNumber", False)'''
 MainWindow.close()
-

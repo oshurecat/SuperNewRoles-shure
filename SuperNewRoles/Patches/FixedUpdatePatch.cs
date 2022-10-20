@@ -259,7 +259,7 @@ namespace SuperNewRoles.Patches
                             case RoleId.Vulture:
                                 if (RoleClass.Vulture.Arrow?.arrow != null)
                                 {
-                                    Object.Destroy(RoleClass.Vulture.Arrow.arrow);
+                                    UObject.Destroy(RoleClass.Vulture.Arrow.arrow);
                                     return;
                                 }
                                 break;

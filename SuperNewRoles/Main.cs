@@ -1,9 +1,9 @@
 global using SuperNewRoles.Modules;
-using System;
+
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+
+
+
 using BepInEx;
 using BepInEx.IL2CPP;
 using HarmonyLib;
@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace SuperNewRoles
 {
-    [BepInAutoPlugin("jp.ykundesu.supernewroles","SuperNewRoles")]
+    [BepInAutoPlugin("jp.ykundesu.supernewroles", "SuperNewRoles")]
     [BepInDependency(SubmergedCompatibility.SUBMERGED_GUID, BepInDependency.DependencyFlags.SoftDependency)]
     [BepInProcess("Among Us.exe")]
     public partial class SuperNewRolesPlugin : BasePlugin

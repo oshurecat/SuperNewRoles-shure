@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections.Generic;
 using HarmonyLib;
 
@@ -62,7 +62,7 @@ namespace SuperNewRoles.Buttons
             this.color = color;
             Timer = 16.2f;
             buttons.Add(this);
-            actionButton = UnityEngine.Object.Instantiate(textTemplate, textTemplate.transform.parent);
+            actionButton = UObject.Instantiate(textTemplate, textTemplate.transform.parent);
             PassiveButton button = actionButton.GetComponent<PassiveButton>();
             button.OnClick = new Button.ButtonClickedEvent();
             button.Colliders = new Collider2D[] { button.GetComponent<BoxCollider2D>() };
@@ -72,8 +72,8 @@ namespace SuperNewRoles.Buttons
             LocalScale = actionButton.transform.localScale;
             if (textTemplate)
             {
-                UnityEngine.Object.Destroy(actionButton.buttonLabelText);
-                actionButton.buttonLabelText = UnityEngine.Object.Instantiate(textTemplate.buttonLabelText, actionButton.transform);
+                UObject.Destroy(actionButton.buttonLabelText);
+                actionButton.buttonLabelText = UObject.Instantiate(textTemplate.buttonLabelText, actionButton.transform);
             }
             SetActive(false);
         }

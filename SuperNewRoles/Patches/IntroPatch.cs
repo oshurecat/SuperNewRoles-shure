@@ -68,7 +68,7 @@ namespace SuperNewRoles.Patches
                     {
                         GameData.PlayerInfo data = p.Data;
                         Logger.Info($"生成:{p.Data.PlayerName}");
-                        PoolablePlayer player = Object.Instantiate(__instance.PlayerPrefab, FastDestroyableSingleton<HudManager>.Instance.transform);
+                        PoolablePlayer player = UObject.Instantiate(__instance.PlayerPrefab, FastDestroyableSingleton<HudManager>.Instance.transform);
                         playerPrefab = __instance.PlayerPrefab;
                         p.SetPlayerMaterialColors(player.cosmetics.currentBodySprite.BodySprite);
                         player.SetSkin(data.DefaultOutfit.SkinId, data.DefaultOutfit.ColorId);
@@ -140,7 +140,7 @@ namespace SuperNewRoles.Patches
                     if (FastDestroyableSingleton<HudManager>.Instance != null)
                     {
                         Vector3 bottomLeft = new Vector3(-FastDestroyableSingleton<HudManager>.Instance.UseButton.transform.localPosition.x, FastDestroyableSingleton<HudManager>.Instance.UseButton.transform.localPosition.y, FastDestroyableSingleton<HudManager>.Instance.UseButton.transform.localPosition.z) + new Vector3(-0.25f, 1f, 0);
-                        RoleClass.Hitman.cooldownText = Object.Instantiate(FastDestroyableSingleton<HudManager>.Instance.KillButton.cooldownTimerText, FastDestroyableSingleton<HudManager>.Instance.transform);
+                        RoleClass.Hitman.cooldownText = UObject.Instantiate(FastDestroyableSingleton<HudManager>.Instance.KillButton.cooldownTimerText, FastDestroyableSingleton<HudManager>.Instance.transform);
                         RoleClass.Hitman.cooldownText.alignment = TMPro.TextAlignmentOptions.Center;
                         RoleClass.Hitman.cooldownText.transform.localPosition = bottomLeft + new Vector3(0f, -1f, -1f);
                         RoleClass.Hitman.cooldownText.gameObject.SetActive(true);

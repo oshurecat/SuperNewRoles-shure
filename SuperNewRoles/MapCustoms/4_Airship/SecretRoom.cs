@@ -1,7 +1,7 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+
 using BepInEx.IL2CPP.Utils;
 using HarmonyLib;
 using Hazel;
@@ -339,7 +339,7 @@ namespace SuperNewRoles.MapCustoms.Airship
                 {
                     if (LowerInfoText == null)
                     {
-                        LowerInfoText = UnityEngine.Object.Instantiate(PlayerControl.LocalPlayer.NameText());
+                        LowerInfoText = UObject.Instantiate(PlayerControl.LocalPlayer.NameText());
                         LowerInfoText.transform.parent = HudManager.Instance.transform;
                         LowerInfoText.transform.localPosition = new Vector3(0, -1.5f, 0);
                         LowerInfoText.transform.localScale = new Vector3(2, 2f, 2);

@@ -1,7 +1,7 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
+
 using HarmonyLib;
 using Hazel;
 using SuperNewRoles.Mode;
@@ -151,7 +151,7 @@ namespace SuperNewRoles.Patches
         {
             foreach (PoolablePlayer pb in __instance.transform.GetComponentsInChildren<PoolablePlayer>())
             {
-                UnityEngine.Object.Destroy(pb.gameObject);
+                UObject.Destroy(pb.gameObject);
             }
             int num = Mathf.CeilToInt(7.5f);
             List<WinningPlayerData> list = TempData.winners.ToArray().ToList().OrderBy(delegate (WinningPlayerData b)
@@ -166,7 +166,7 @@ namespace SuperNewRoles.Patches
                 float num4 = (float)num3 / (float)num;
                 float num5 = Mathf.Lerp(1f, 0.75f, num4);
                 float num6 = (float)((i == 0) ? -8 : -1);
-                PoolablePlayer poolablePlayer = UnityEngine.Object.Instantiate<PoolablePlayer>(__instance.PlayerPrefab, __instance.transform);
+                PoolablePlayer poolablePlayer = UObject.Instantiate<PoolablePlayer>(__instance.PlayerPrefab, __instance.transform);
                 poolablePlayer.transform.localPosition = new Vector3(1f * (float)num2 * (float)num3 * num5, FloatRange.SpreadToEdges(-1.125f, 0f, num3, num), num6 + (float)num3 * 0.01f) * 0.9f;
                 float num7 = Mathf.Lerp(1f, 0.65f, num4) * 0.9f;
                 Vector3 vector = new(num7, num7, 1f);
@@ -195,7 +195,7 @@ namespace SuperNewRoles.Patches
                 }
             }
 
-            GameObject bonusTextObject = UnityEngine.Object.Instantiate(__instance.WinText.gameObject);
+            GameObject bonusTextObject = UObject.Instantiate(__instance.WinText.gameObject);
             bonusTextObject.transform.position = new Vector3(__instance.WinText.transform.position.x, __instance.WinText.transform.position.y - 0.8f, __instance.WinText.transform.position.z);
             bonusTextObject.transform.localScale = new Vector3(0.7f, 0.7f, 1f);
             textRenderer = bonusTextObject.GetComponent<TMPro.TMP_Text>();
@@ -396,7 +396,7 @@ namespace SuperNewRoles.Patches
             try
             {
                 var position = Camera.main.ViewportToWorldPoint(new Vector3(0f, 1f, Camera.main.nearClipPlane));
-                GameObject roleSummary = UnityEngine.Object.Instantiate(__instance.WinText.gameObject);
+                GameObject roleSummary = UObject.Instantiate(__instance.WinText.gameObject);
                 roleSummary.transform.position = new Vector3(__instance.Navigation.ExitButton.transform.position.x + 0.1f, position.y - 0.1f, -14f);
                 roleSummary.transform.localScale = new Vector3(1f, 1f, 1f);
 
@@ -1505,7 +1505,8 @@ namespace SuperNewRoles.Patches
                 PavlovsownerAlive = numPavlovsownerAlive;
                 PavlovsTeamAlive = numPavlovsTeamAlive;
                 HitmanAlive = numHitmanAlive;
-                if (!(IsGuardPavlovs = PavlovsDogAlive > 0)) {
+                if (!(IsGuardPavlovs = PavlovsDogAlive > 0))
+                {
                     foreach (PlayerControl p in RoleClass.Pavlovsowner.PavlovsownerPlayer)
                     {
                         if (p == null) continue;

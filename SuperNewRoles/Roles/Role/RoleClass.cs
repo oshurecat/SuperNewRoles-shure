@@ -1,6 +1,6 @@
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
+
 using HarmonyLib;
 using SuperNewRoles.CustomObject;
 using SuperNewRoles.Patches;
@@ -2457,7 +2457,7 @@ namespace SuperNewRoles.Roles
                 WinKillCount = CustomOptions.HitmanWinKillCount.GetInt();
                 if (TargetArrow != null && TargetArrow.arrow != null)
                 {
-                    UnityEngine.Object.Destroy(TargetArrow.arrow);
+                    UObject.Destroy(TargetArrow.arrow);
                 }
                 TargetArrow = null;
                 ArrowUpdateTimeDefault = CustomOptions.HitmanIsArrowView.GetBool() ? CustomOptions.HitmanArrowUpdateTime.GetFloat() : -1;

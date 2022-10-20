@@ -1,7 +1,7 @@
-using System;
+
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+
+
 using HarmonyLib;
 using UnityEngine;
 
@@ -56,7 +56,7 @@ namespace SuperNewRoles.CustomCosmetics
                 }
                 SuperNewRolesPlugin.Logger.LogInfo("[CustomPlate] プレート読み込み処理終了");
                 AllPlates.AddRange(NamePlateDatas);
-                __instance.allNamePlates = AllPlates.ToArray();
+                __instance.allNamePlates = AllPlates.ToIl2CppList();
             }
         }
     }
