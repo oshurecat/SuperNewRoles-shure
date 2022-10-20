@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Hazel;
+
 using SuperNewRoles.Helpers;
 
 namespace SuperNewRoles.Sabotage

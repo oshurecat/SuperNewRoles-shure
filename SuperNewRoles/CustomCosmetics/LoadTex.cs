@@ -1,6 +1,6 @@
 
 
-using UnhollowerBaseLib;
+
 using UnityEngine;
 
 namespace SuperNewRoles.CustomCosmetics

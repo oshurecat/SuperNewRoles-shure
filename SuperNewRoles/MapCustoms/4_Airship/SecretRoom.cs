@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using BepInEx.IL2CPP.Utils;
 
-using Hazel;
+
 using SuperNewRoles.Helpers;
 using SuperNewRoles.Roles;
 using TMPro;

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 
 
-using Hazel;
+
 using SuperNewRoles.Mode;
 using SuperNewRoles.Mode.SuperHostRoles;
 using SuperNewRoles.Roles;
-using UnhollowerBaseLib;
+
 using UnityEngine;
 
 namespace SuperNewRoles.Patches

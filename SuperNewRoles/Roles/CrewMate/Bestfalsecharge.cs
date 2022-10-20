@@ -1,5 +1,5 @@
 
-using Hazel;
+
 using SuperNewRoles.Helpers;
 using SuperNewRoles.Mode;
 

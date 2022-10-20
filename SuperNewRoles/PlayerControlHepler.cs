@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-using InnerNet;
+
 using SuperNewRoles.Roles;
 using UnityEngine;
 

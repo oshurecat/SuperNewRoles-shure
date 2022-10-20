@@ -4,7 +4,7 @@
 using SuperNewRoles.Helpers;
 using SuperNewRoles.Mode;
 using SuperNewRoles.Mode.SuperHostRoles;
-using UnhollowerBaseLib;
+
 
 namespace SuperNewRoles.Roles
 {

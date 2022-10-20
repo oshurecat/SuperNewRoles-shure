@@ -1,5 +1,5 @@
 
-using Hazel;
+
 using SuperNewRoles.Roles;
 
 namespace SuperNewRoles.Mode.SuperHostRoles

@@ -1,6 +1,6 @@
 
 
-using Hazel;
+
 using SuperNewRoles.Buttons;
 
 using SuperNewRoles.Mode;

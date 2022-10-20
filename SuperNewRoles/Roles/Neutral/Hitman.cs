@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-using Hazel;
+
 using SuperNewRoles.CustomObject;
 using SuperNewRoles.Helpers;
 using SuperNewRoles.Patches;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using BepInEx.IL2CPP.Utils;
 
-using InnerNet;
+
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.Networking;

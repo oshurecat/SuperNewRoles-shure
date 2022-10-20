@@ -1,7 +1,7 @@
 
 using System.Collections.Generic;
 
-using Hazel;
+
 using SuperNewRoles.Buttons;
 using SuperNewRoles.Helpers;
 using SuperNewRoles.Roles;

@@ -1,4 +1,4 @@
-using Hazel;
+
 using SuperNewRoles.Mode.SuperHostRoles;
 using SuperNewRoles.Patches;
 

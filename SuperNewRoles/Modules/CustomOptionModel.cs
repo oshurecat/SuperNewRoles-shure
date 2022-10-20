@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 using BepInEx.Configuration;
 
-using Hazel;
+
 using SuperNewRoles.Mode;
 using UnityEngine;
 using UnityEngine.Events;

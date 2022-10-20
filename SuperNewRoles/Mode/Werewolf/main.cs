@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-using UnhollowerBaseLib;
+
 using UnityEngine;
 
 namespace SuperNewRoles.Mode.Werewolf
