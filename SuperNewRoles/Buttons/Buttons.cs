@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using Agartha;
-using HarmonyLib;
+
 using Hazel;
 using SuperNewRoles.CustomObject;
 using SuperNewRoles.Helpers;

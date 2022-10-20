@@ -1,4 +1,4 @@
-using HarmonyLib;
+
 using UnityEngine;
 
 namespace SuperNewRoles.CustomCosmetics.CustomCosmeticsMenus.Patch

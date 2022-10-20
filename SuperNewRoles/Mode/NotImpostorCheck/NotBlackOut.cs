@@ -1,4 +1,4 @@
-using HarmonyLib;
+
 using SuperNewRoles.Mode.SuperHostRoles;
 
 namespace SuperNewRoles.Mode.NotImpostorCheck

@@ -10,6 +10,8 @@ global using global::System.Reflection;
 global using global::System.Net;
 global using global::System.Text;
 
+// -- AmongUs,Unity,etc... --
+global using global::HarmonyLib;
 
 // -- alias --
 global using UObject = UnityEngine.Object;
