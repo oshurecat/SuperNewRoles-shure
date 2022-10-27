@@ -11,6 +11,7 @@ namespace SuperNewRoles.Patches
     {
         private static void Prefix(MainMenuManager __instance)
         {
+            AssetLoader.LoadAssets();
             var template = GameObject.Find("ExitGameButton");
             if (template == null) return;
 
