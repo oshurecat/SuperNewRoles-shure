@@ -35,16 +35,16 @@ namespace SuperNewRoles.CustomObject
 
         public PlayerControl Owner;
         public int Id;
-        private List<Sprite> sprites;
+        public List<Sprite> sprites;
         private float UpdateTime;
         private float DefaultUpdateTime => 1f / freamrate;
         private int freamrate;
         private int index;
         private bool IsLoop;
         private bool Playing;
-        private SpriteRenderer render;
-        private SpriteRenderer effectrender;
-        private byte OwnerPlayerId;
+        private readonly SpriteRenderer render;
+        private readonly SpriteRenderer effectrender;
+        private readonly byte OwnerPlayerId;
         private Action OnPlayEnd;
         public static Dictionary<byte, int> Ids;
         public bool IsShootNow;
@@ -52,6 +52,7 @@ namespace SuperNewRoles.CustomObject
         private int DestroyIndex = 0;
         static Vector3 OwnerPos;
         static AudioSource ChargeSound;
+        public static List<Sprite> AssetSprite;
 
         public WaveCannonObject(Vector3 pos, bool FlipX, PlayerControl _owner)
         {
@@ -106,7 +107,7 @@ namespace SuperNewRoles.CustomObject
             sprites = new();
             for (int i = 1; i <= 12; i++)
             {
-                sprites.Add(ModHelpers.LoadSpriteFromResources($"SuperNewRoles.Resources.WaveCannon.Shoot_00{(i <= 9 ? "0" : "")}{i}.png", 115f));
+                sprites.Add(AssetSprite[i]);
             }
             effectrender.sprite = sprites[0];
             IsLoop = false;
@@ -120,7 +121,7 @@ namespace SuperNewRoles.CustomObject
                 sprites = new();
                 for (int i = 6; i <= 12; i++)
                 {
-                    sprites.Add(ModHelpers.LoadSpriteFromResources($"SuperNewRoles.Resources.WaveCannon.Shoot_00{(i <= 9 ? "0" : "")}{i}.png", 115f));
+                    sprites.Add(AssetSprite[i]);
                 }
                 effectrender.sprite = sprites[0];
                 OnPlayEnd = () =>
@@ -195,7 +196,7 @@ namespace SuperNewRoles.CustomObject
                         if (RoleClass.WaveCannon.CannotMurderPlayers.Contains(player.PlayerId)) continue;
                         if (player.PlayerId == CachedPlayer.LocalPlayer.PlayerId) continue;
                         float posdata = player.GetTruePosition().y - transform.position.y;
-                        if (posdata > 1 || posdata < -1) continue;
+                        if (posdata is > 1 or < (-1)) continue;
                         posdata = transform.position.x - (IsFlipX ? -2 : 2);
                         if ((IsFlipX && player.transform.position.x > posdata) || (!IsFlipX && player.transform.position.x < posdata)) continue;
                         if (player.IsRole(RoleId.Shielder) && RoleClass.Shielder.IsShield.ContainsKey(player.PlayerId) && RoleClass.Shielder.IsShield[player.PlayerId])
@@ -237,7 +238,7 @@ namespace SuperNewRoles.CustomObject
                         if (!IsLoop)
                         {
                             Playing = false;
-                            if (OnPlayEnd != null) OnPlayEnd();
+                            OnPlayEnd?.Invoke();
                             return;
                         }
                     }

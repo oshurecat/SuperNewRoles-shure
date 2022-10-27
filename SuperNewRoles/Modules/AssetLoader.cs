@@ -1,9 +1,8 @@
 // From https://github.com/haoming37/TheOtherRoles-GM-Haoming/blob/haoming-main/TheOtherRoles/Modules/AssetLoader.cs
 using System.IO;
 using System.Reflection;
-using UnityEngine;
 using SuperNewRoles.CustomObject;
-
+using UnityEngine;
 using Il2CppType = UnhollowerRuntimeLib.Il2CppType;
 
 namespace SuperNewRoles.Modules
@@ -21,8 +20,9 @@ namespace SuperNewRoles.Modules
             #region Load Assets
             // example: LoadSpriteFromAssets(assetBundleBundle.LoadAsset<Texture2D>("SoothSayerButton.png").DontUnload(),115f);
             for (int i = 1; i <= 12; i++)
-            {
-                WaveCannonObject.AssetSprite.Add(LoadSpriteFromAssets(waveCannonBundle.LoadAsset<Texture2D>($"SuperNewRoles.Resources.WaveCannon.Shoot_00{(i <= 9 ? "0" : "")}{i}.png").DontUnload(), 115f));
+            {try{
+                WaveCannonObject.AssetSprite.Add(LoadSpriteFromAssets(waveCannonBundle.LoadAsset<Texture2D>($"Shoot_00{(i <= 9 ? "0" : "")}{i}.png").DontUnload(), 115f));
+            }catch(System.NullReferenceException){Logger.Info("えらーなう");}
             }
             #endregion LoadAssets
         }
