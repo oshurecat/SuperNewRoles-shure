@@ -1989,10 +1989,10 @@ namespace SuperNewRoles.Buttons
                                 }
                                 break;
                             case RoleId.EvilSeer:
-                                if (RoleClass.EvilSeer.IsCreateMadmate)
+                                if (Madmate.CreateMadmateDictionary[RoleId.EvilSeer])
                                 {
                                     Madmate.CreateMadmate(target);
-                                    RoleClass.EvilSeer.IsCreateMadmate = false;
+                                    Madmate.CreateMadmateDictionary[RoleId.EvilSeer] = false;
                                 }
                                 break;
                         }
