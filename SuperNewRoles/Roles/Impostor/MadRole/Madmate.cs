@@ -52,5 +52,11 @@ namespace SuperNewRoles.Roles
         {
             target.ResetAndSetRole(RoleId.Madmate);
         }
+
+        public static Dictionary<RoleId, bool> CreateMadmateDictionary = new()
+        {
+            { RoleId.EvilHacker,CustomOptionHolder.EvilHackerMadmateSetting.GetBool()},
+            { RoleId.EvilSeer, CustomOptionHolder.EvilSeerMadmateSetting.GetBool()},
+        };
     }
 }
