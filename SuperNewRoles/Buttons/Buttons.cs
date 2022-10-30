@@ -1982,10 +1982,10 @@ namespace SuperNewRoles.Buttons
                         switch (PlayerControl.LocalPlayer.GetRole())
                         {
                             case RoleId.EvilHacker:
-                                if (RoleClass.EvilHacker.IsCreateMadmate)
+                                if (Madmate.CreateMadmateDictionary[RoleId.EvilHacker])
                                 {
                                     Madmate.CreateMadmate(target);
-                                    RoleClass.EvilHacker.IsCreateMadmate = false;
+                                    Madmate.CreateMadmateDictionary[RoleId.EvilHacker] = false;
                                 }
                                 break;
                             case RoleId.EvilSeer:
